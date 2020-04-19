@@ -37,17 +37,13 @@ namespace Server
             txtDisplay.Invoke((MethodInvoker)delegate ()
             {
                 txtDisplay.Text += e.MessageString;
-                //e.ReplyLine(string.Format("You said: {0}", e.MessageString));
+               // e.ReplyLine(string.Format("You said: {0}", e.MessageString));
             });
         }
 
         private void btnSend_Click(object sender, EventArgs e)
         {
             client.WriteLineAndGetReply(txtMess.Text,TimeSpan.FromSeconds(3));
-            if(txtMess.ToString() == "1")
-            {
-                txtDisplay.Text = "Mot";
-            }
         }
     }
 }
