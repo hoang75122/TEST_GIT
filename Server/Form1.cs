@@ -37,7 +37,7 @@ namespace Server
             txtDisplay.Invoke((MethodInvoker)delegate ()
             {
                 txtDisplay.Text += e.MessageString;
-               // e.ReplyLine(string.Format("You said: {0}", e.MessageString));
+              //  e.ReplyLine(string.Format("You said: {0}", e.MessageString));
             });
         }
 

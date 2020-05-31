@@ -1,6 +1,6 @@
 ﻿namespace Client
 {
-    partial class Form1
+    partial class Server1
     {
         /// <summary>
         /// Required designer variable.
@@ -112,7 +112,7 @@
             this.Controls.Add(this.txtStart);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "TCPTest";
+            this.Text = "SerVer";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

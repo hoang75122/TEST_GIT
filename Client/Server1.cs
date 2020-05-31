@@ -12,14 +12,14 @@ using System.Net;
 
 namespace Client
 {
-    public partial class Form1 : Form
+    public partial class Server1 : Form
     {
-        public Form1()
+        public Server1()
         {
             InitializeComponent();
         }
         SimpleTcpServer Server;
-
+        SimpleTcpClient Client;
         private void Form1_Load(object sender, EventArgs e)
         {
             Server = new SimpleTcpServer();
@@ -57,17 +57,22 @@ namespace Client
                 else if (e.MessageString.Contains("End"))
                     e.ReplyLine("You said: Bye \n");
                 else
-                    e.ReplyLine("You said : Nhap lai!");
+                    e.ReplyLine("You said : Nhap lai");
             });
         }
-
+        int dem = 0;
         private void txtStart_Click(object sender, EventArgs e)
         {
             IPAddress ip;
             ip = IPAddress.Parse(txtHost.Text);
-            Server.Start(ip, Convert.ToInt32(txtPort.Text));// you đóng cái dòng qq này me thay no k co nen me dong vao
+            Server.Start(ip, Convert.ToInt32(txtPort.Text));
             txtDisplay.Text += "Server starting...";
-            
+            dem++;
+            if (dem > 1)
+            {
+                MessageBox.Show("429 Too Many Requests");
+                Server.Stop();
+            }
         }
 
         private void txtStop_Click(object sender, EventArgs e)
